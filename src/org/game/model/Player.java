@@ -1,7 +1,7 @@
 package org.game.model;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 /**
  * The class is used to represent a domino game player.
@@ -14,7 +14,7 @@ public class Player {
 	private static int numOfPlayers = 0; // holds the total number of players playing the domino game
 	private String name; // the name of the player
 	private int id; // the player's ID number. i.e. Player 1, Player 2, etc.
-	Collection<Domino> hand; // The player has a hand of dominos.
+	List<Domino> hand; // The player has a hand of dominos.
 	
 	/**
 	 * Creates a new player with a given name.
@@ -79,13 +79,59 @@ public class Player {
 	}
 	
 	/**
+	 * Adds a domino to the player's hand.
+	 * @param domino the domino to be added to the player's hand.
+	 */
+	public void addDomino(Domino domino){
+		this.hand.add(domino);
+	}
+	
+	/**
+	 * Removes a domino from the player's hand. It returns the removed domino.
+	 * @param index the index position of the domino in the hand to be returned.
+	 * @return the domino that is removed from the hand.
+	 */
+	public Domino removeDom(int index){
+		
+		/* Get the domino to be returned */
+		Domino domino = hand.get(index);
+		
+		/* Remove it from the hand */
+		hand.remove(index);
+		
+		/* Return the domino */
+		return domino;
+		
+	}
+	
+	/**
 	 * Determines if a player has a specific domino in his/her hand.
 	 * @param domino the domino to check for.
 	 * @return true if the player has that specific domino.
 	 */
-	public boolean hasDominoInHand(Domino domino){
+	public boolean hasDominoInHand(Domino domino){	
+		return hand.contains(domino);	
+	}
+	
+	/** 
+	 * Determine if the player has a domino in his/her hand that 
+	 * can be played on the board.
+	 * @param the side of the domino on the board to be checked.
+	 * @return true if the player has a playable domino.
+	 */
+	public boolean hasPlay(int side){
 		
-		return true; //--TODO
+		for (Domino domInHand : hand){
+			
+			/* the board domino side (int) equals the hand domino side 1 or side 2 */
+			if( (side == domInHand.getSide1()) || (side == domInHand.getSide2()) ){
+				return true;
+			}
+			
+		}
+		
+		/* Checked the entire hand, there were no matches */
+		return false;
 		
 	}
 	

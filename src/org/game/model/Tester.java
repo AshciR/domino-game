@@ -34,7 +34,7 @@ public class Tester {
 		System.out.println("This domino is " + dom2);
 		System.out.println("This domino is " + dom3);
 		
-		/* Ge the total values */
+		/* Get the total values */
 		System.out.println();
 		System.out.println("The total value for " + dom1 + " is " + dom1.getTotalValue());
 		System.out.println("The total value for " + dom2 + " is " + dom2.getTotalValue());
