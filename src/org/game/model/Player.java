@@ -60,6 +60,14 @@ public class Player {
 		return id;
 	}
 	
+	/**
+	 * Returns the list of dominos in the player's hand.
+	 * @return the dominos in this player's hand.
+	 */
+	public List<Domino> getHand(){
+		return this.hand;
+	}
+	
 	/*  ----- The Hand Methods -----*/
 	
 	/**

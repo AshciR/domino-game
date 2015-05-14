@@ -11,13 +11,14 @@ package org.game.model;
 public class Tester {
 	
 	public static void main(String[] args) {
-		DominoClass();
+		PlayerClass();
 	}
 
 	/**
 	 * This method is used to test the Domino Class.
 	 * @see Domino
 	 */
+	@SuppressWarnings("unused")
 	private static void DominoClass(){
 		
 		System.out.println("-- Testing the Domino Class --");
@@ -56,6 +57,28 @@ public class Tester {
 		System.out.println("Are " + dom1 + " and " + dom1 + " are the same? " + dom1.equals(dom1)); // true 
 		System.out.println("Are " + dom1 + " and " + dom2 + " are the same? " + dom1.equals(dom2)); // false
 		System.out.println("Are " + dom1 + " and " + dom4 + " are the same? " + dom1.equals(dom4)); // true
+		
+	}
+	
+	/**
+	 * This method is used to test the Player Class.
+	 * @see Player
+	 */
+	private static void PlayerClass(){
+		System.out.println("-- Testing the Player Class --");
+		System.out.println();
+		
+		/* Make the players for testing */
+		Player richie = new Player("Richie"); 
+		Player dwayne = new Player("Dwayne"); 
+		
+		/* Should be 2 players now */
+		System.out.println("There are " + Player.getNumOfPlayers() + " players");
+		
+		/* Print players info */
+		System.out.println(richie);
+		System.out.println(dwayne);
+		
 		
 	}
 	
