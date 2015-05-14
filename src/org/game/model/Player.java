@@ -66,7 +66,7 @@ public class Player {
 	 * Gets the number of dominos in a player's hand.
 	 * @return the number of dominos in the player's hand
 	 */
-	public int numOfCardsInHand(){
+	public int numOfDomInHand(){
 		return hand.size();
 	}
 	
@@ -134,5 +134,31 @@ public class Player {
 		return false;
 		
 	}
+	
+	/**
+	 * Returns the total value of all the dominos in the player's hand. 
+	 * @return the total value of all the dominos in the player's hand.
+	 */
+	public int valueOfHand(){
+		
+		int total = 0;
+		
+		/* Sum the value for each domino in the hand */
+		for(Domino domino : hand){
+			total = total + domino.getTotalValue();
+		}
+		
+		return total;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Player #: " + getId() + "\n" +
+			   "Player name: " + getName() + "\n" +
+			   "Num of dominos in hand: " + numOfDomInHand();
+	}
+	
+	
 	
 }
