@@ -4,7 +4,7 @@ package org.game.model;
  * A class used to represent a single domino.
  * @author Richard Walker
  */
-public class Domino {
+public class Domino implements Comparable<Domino> {
 	
 	/* Fields used to represent the sides of a domino.
 	 * A domino has two sides associated with it. */
@@ -79,9 +79,32 @@ public class Domino {
 	}
 	
 	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Domino other = (Domino) obj;
+		if (side1 != other.side1)
+			return false;
+		if (side2 != other.side2)
+			return false;
+		return true;
+	}
+
+	@Override
+	public int compareTo(Domino compDom) {
+		return this.getTotalValue() - compDom.getTotalValue();
+	}
+	
+	@Override
 	public String toString() {
 		return side1 + " | " + side2;
 	}
+
+
 	
 
 }

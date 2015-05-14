@@ -27,6 +27,7 @@ public class Tester {
 		Domino dom1 = new Domino(5,5); // 5 | 5
 		Domino dom2 = new Domino(6,4); // 6 | 4
 		Domino dom3 = new Domino(); // double blank
+		Domino dom4 = new Domino(5,5); // 5 | 5
 		
 		/* Print the dominos */
 		System.out.println("This domino is " + dom1);
@@ -49,7 +50,13 @@ public class Tester {
 		System.out.println();
 		System.out.println(dom1 + " and " + dom2 + " have the same total value " + dom1.isSameValue(dom2)); // true 
 		System.out.println(dom1 + " and " + dom3 + " have the same total value " + dom1.isSameValue(dom3)); // false
-			
+		
+		/* Test the equals() method */
+		System.out.println();
+		System.out.println("Are " + dom1 + " and " + dom1 + " are the same? " + dom1.equals(dom1)); // true 
+		System.out.println("Are " + dom1 + " and " + dom2 + " are the same? " + dom1.equals(dom2)); // false
+		System.out.println("Are " + dom1 + " and " + dom4 + " are the same? " + dom1.equals(dom4)); // true
+		
 	}
 	
 	
