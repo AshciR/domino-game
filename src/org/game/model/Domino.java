@@ -10,13 +10,23 @@ public class Domino implements Comparable<Domino> {
 	 * A domino has two sides associated with it. */
 	private int side1, side2;
 	
+	public void setSide1(int side1) {
+		this.side1 = side1;
+	}
+
+	public void setSide2(int side2) {
+		this.side2 = side2;
+	}
+
 	/**
 	 * Constructor that makes a new "double blank" domino. 
 	 * I.e. a domino whose both sides are 0.  
 	 */
-	public Domino(){
-		this.side1 = 0;
-		this.side2 = 0;
+	
+	//needed a default constructor
+	public Domino()
+	{
+		
 	}
 	
 	/**

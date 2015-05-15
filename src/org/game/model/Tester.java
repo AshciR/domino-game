@@ -11,7 +11,8 @@ package org.game.model;
 public class Tester {
 	
 	public static void main(String[] args) {
-		
+		DominoClass();
+		PlayerClass();
 	}
 
 	/**
@@ -23,6 +24,9 @@ public class Tester {
 		
 		System.out.println("-- Testing the Domino Class --");
 		System.out.println();
+		
+		/*Creates Pack of Dominos*/
+		OpenPack();
 		
 		/* Make the dominos for testing */
 		Domino dom1 = new Domino(5,5); // 5 | 5
@@ -152,6 +156,30 @@ public class Tester {
 			System.out.println(dom);
 		}
 		
+	}
+	
+	/*Creates the Pack of dominos by creating a Domino Array and using a 2-Dimensional loop to populate it*/	
+	public static void OpenPack()
+	{
+		Domino[] pack = new Domino[28];
+		int j =0, i, k;
+		System.out.println("creating cards");
+		for(i = 0; i<=6;i++)
+		{
+			for(k = i; k<=6;k++)
+			{
+				pack[j] = new Domino(i,k); 
+				j++;
+			}
+		}
+		for(i = 1; i <= 28;i++)
+		{
+			System.out.print("      "+pack[i-1]);
+			if(i%7 == 0)
+				System.out.println();
+		}
+		
+		System.out.println("Pack opened. please Shuffle.\n");
 	}
 	
 	
