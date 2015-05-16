@@ -161,17 +161,7 @@ public class Tester {
 	/*Creates the Pack of dominos by creating a Domino Array and using a 2-Dimensional loop to populate it*/	
 	public static void OpenPack()
 	{
-		Domino[] pack = new Domino[28];
-		int j =0, i, k;
-		System.out.println("creating cards");
-		for(i = 0; i<=6;i++)
-		{
-			for(k = i; k<=6;k++)
-			{
-				pack[j] = new Domino(i,k); 
-				j++;
-			}
-		}
+		int i;
 		for(i = 1; i <= 28;i++)
 		{
 			System.out.print("      "+pack[i-1]);
