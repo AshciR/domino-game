@@ -1,7 +1,5 @@
 package org.game.model;
 
-import java.util.Collections;
-
 /**
  * This class serves as the testing framework for the classes
  * that are developed in this project.
@@ -168,7 +166,7 @@ public class Tester {
 		System.out.println("--- Testing the domino pack class ---");
 		
 		/* Creates a new test pack with 28 dominos */
-		System.out.println("Making a pack with 28 dominos");
+		System.out.println("\nMaking a pack with 28 dominos");
 		Pack testPack = new Pack();
 		
 		System.out.println("Printing the pack");
@@ -192,11 +190,10 @@ public class Tester {
 		}
 		
 		/* Shuffling the pack */
-		System.out.println("Shuffling...");
+		System.out.println("\nShuffling...");
 		testPack.shuffle();
 		
 		/* Print the new shuffled pack */
-		System.out.println();
 		for(Domino dom : testPack.getDominos()){
 			System.out.println(dom);
 		}
