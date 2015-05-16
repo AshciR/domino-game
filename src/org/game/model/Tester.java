@@ -13,7 +13,6 @@ import java.util.Iterator;
 public class Tester {
 	
 	public static void main(String[] args) {
-		PackClass();
 		
 	}
 
@@ -230,8 +229,6 @@ public class Tester {
 			
 		}
 			
-		
-		
 	}
 	
 	
