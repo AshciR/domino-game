@@ -13,7 +13,6 @@ public class Pack
 	{
 		int i, k;
 		pack = new ArrayList<Domino>();
-		System.out.println("creating cards");
 		for(i = 0; i<=6;i++)
 		{
 			for(k = i; k<=6;k++)

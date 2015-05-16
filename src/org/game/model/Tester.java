@@ -1,5 +1,7 @@
 package org.game.model;
 
+import java.util.Iterator;
+
 /**
  * This class serves as the testing framework for the classes
  * that are developed in this project.
@@ -166,36 +168,66 @@ public class Tester {
 		System.out.println("--- Testing the domino pack class ---");
 		
 		/* Creates a new test pack with 28 dominos */
-		System.out.println("\nMaking a pack with 28 dominos");
+		System.out.println("\nMaking a pack with 28 dominos.");
 		Pack testPack = new Pack();
 		
-		System.out.println("Printing the pack");
-		System.out.println();
+		System.out.println("\nPrinting the pack.");
 		
-		/* Print all the dominos in the pack */
-		for (Domino dom : testPack.getDominos()){
+		/* Make an interator for the dominoes in the pack */
+		Iterator<Domino> domIter = testPack.getDominos().iterator();
+		
+		/* Get the next domino, which is the 1st domino, in the pack */
+		Domino nextDom = domIter.next();
+		
+		/* What number does the current side of the domino have? */
+		int currentSide = nextDom.getSide1();
+		
+		/* Print the 1st domino */
+		System.out.print(nextDom + "\t");
+		
+		/* While the pack still has dominos in it */
+		while(domIter.hasNext()){
 			
-			/* What number does the current side of the domino have? */
-			int currentSide = dom.getSide1();
+			/* The next domino in the pack */
+			nextDom = domIter.next();
+			int nextDomSide  = nextDom.getSide1();
 			
-			/* If the side is the same, then print it on the same line */
-			if(dom.getSide1() == currentSide){
-				System.out.print(dom + "\t");
-			}
-			/* New number, so start the next line */
-			else{
+			/* If the next domino's side is different from the current side 
+			 * print a new line */
+			if(nextDomSide != currentSide){
 				System.out.println();
+				
+				/* Make the current side (to be checked) 
+				 * the same as the next domino's side */
+				currentSide = nextDomSide;
+				
 			}
+			
+			/* Print the domino */
+			System.out.print(nextDom + "\t");
 			
 		}
-		
+				
 		/* Shuffling the pack */
-		System.out.println("\nShuffling...");
+		System.out.println("\n\nShuffling...");
 		testPack.shuffle();
+		
+		/* Used to keep track of how many dominoes have been printed on the line */
+		int printCount = 0;
 		
 		/* Print the new shuffled pack */
 		for(Domino dom : testPack.getDominos()){
-			System.out.println(dom);
+			
+			/* Print the domino */
+			System.out.print(dom + "\t");
+			printCount++;
+			
+			/* Make a new line after 7 dominos have been printed */
+			if(printCount > 6){
+				System.out.println();
+				printCount = 0;
+			}
+			
 		}
 			
 		
