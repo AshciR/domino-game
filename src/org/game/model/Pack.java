@@ -1,6 +1,7 @@
 package org.game.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Pack 
@@ -30,7 +31,15 @@ public class Pack
 		return pack;
 	}
 	
-	
+	public void Shuffle()
+	{
+		System.out.println("Shuffling...");
+		Collections.shuffle(pack);
+		
+		/* Print the new shuffled pack */
+		for(Domino dom : pack)
+			System.out.print(dom);
+	}
 	
 	
 	

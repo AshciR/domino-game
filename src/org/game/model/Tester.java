@@ -1,5 +1,7 @@
 package org.game.model;
 
+import java.util.Collections;
+
 /**
  * This class serves as the testing framework for the classes
  * that are developed in this project.
@@ -11,8 +13,8 @@ package org.game.model;
 public class Tester {
 	
 	public static void main(String[] args) {
-		DominoClass();
-		PlayerClass();
+		PackClass();
+		
 	}
 
 	/**
@@ -25,8 +27,6 @@ public class Tester {
 		System.out.println("-- Testing the Domino Class --");
 		System.out.println();
 		
-		/*Creates Pack of Dominos*/
-		OpenPack();
 		
 		/* Make the dominos for testing */
 		Domino dom1 = new Domino(5,5); // 5 | 5
@@ -158,15 +158,44 @@ public class Tester {
 		
 	}
 	
-	/*Creates the Pack of dominos by creating a Domino Array and using a 2-Dimensional loop to populate it*/	
-	public static void OpenPack()
-	{
-		Pack newPack = new Pack();
+	/**
+	 * Tester for the Pack Class
+	 * @see Pack
+	 * */	
+	@SuppressWarnings("unused")
+	private static void PackClass(){
 		
-			System.out.print("      "+newPack);
+		System.out.println("--- Testing the domino pack class ---");
+		
+		/* Creates a new test pack with 28 dominos */
+		System.out.println("Making a pack with 28 dominos");
+		Pack testPack = new Pack();
+		
+		System.out.println("Printing the pack");
+		System.out.println();
+		
+		/* Print all the dominos in the pack */
+		for (Domino dom : testPack.getDominos()){
+			
+			/* What number does the current side of the domino have? */
+			int currentSide = dom.getSide1();
+			
+			/* If the side is the same, then print it on the same line */
+			if(dom.getSide1() == currentSide){
+				System.out.print(dom + "\t");
+			}
+			/* New number, so start the next line */
+			else{
+				System.out.println();
+			}
+			
+		}
+		
+		/* Shuffling the pack */
+		testPack.Shuffle();
 		
 		
-		System.out.println("Pack opened. please Shuffle.\n");
+		
 	}
 	
 	
