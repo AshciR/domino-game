@@ -1,15 +1,17 @@
 package org.game.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pack 
 {
 	List<Domino> pack; 
 	
+	
 	public Pack()
 	{
 		int i, k;
-		
+		pack = new ArrayList();
 		System.out.println("creating cards");
 		for(i = 0; i<=6;i++)
 		{
@@ -21,5 +23,15 @@ public class Pack
 			}
 		}
 	}
+
+
+	public List<Domino> getDominos() 
+	{
+		return pack;
+	}
+	
+	
+	
+	
 	
 }
