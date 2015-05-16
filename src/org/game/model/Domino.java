@@ -22,11 +22,10 @@ public class Domino implements Comparable<Domino> {
 	 * Constructor that makes a new "double blank" domino. 
 	 * I.e. a domino whose both sides are 0.  
 	 */
-	
-	//needed a default constructor
 	public Domino()
 	{
-		
+		this.side1 = 0;
+		this.side2 = 0;
 	}
 	
 	/**

@@ -192,8 +192,15 @@ public class Tester {
 		}
 		
 		/* Shuffling the pack */
-		testPack.Shuffle();
+		System.out.println("Shuffling...");
+		testPack.shuffle();
 		
+		/* Print the new shuffled pack */
+		System.out.println();
+		for(Domino dom : testPack.getDominos()){
+			System.out.println(dom);
+		}
+			
 		
 		
 	}

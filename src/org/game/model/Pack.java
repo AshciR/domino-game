@@ -12,7 +12,7 @@ public class Pack
 	public Pack()
 	{
 		int i, k;
-		pack = new ArrayList();
+		pack = new ArrayList<Domino>();
 		System.out.println("creating cards");
 		for(i = 0; i<=6;i++)
 		{
@@ -31,14 +31,9 @@ public class Pack
 		return pack;
 	}
 	
-	public void Shuffle()
+	public void shuffle()
 	{
-		System.out.println("Shuffling...");
 		Collections.shuffle(pack);
-		
-		/* Print the new shuffled pack */
-		for(Domino dom : pack)
-			System.out.print(dom);
 	}
 	
 	
