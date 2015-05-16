@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class Tester {
 	
 	public static void main(String[] args) {
-		
+	
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class Tester {
 	/**
 	 * Tester for the Pack Class
 	 * @see Pack
-	 * */	
+	 */	
 	@SuppressWarnings("unused")
 	private static void PackClass(){
 		
@@ -172,7 +172,7 @@ public class Tester {
 		
 		System.out.println("\nPrinting the pack.");
 		
-		/* Make an interator for the dominoes in the pack */
+		/* Make an iterator for the dominoes in the pack */
 		Iterator<Domino> domIter = testPack.getDominos().iterator();
 		
 		/* Get the next domino, which is the 1st domino, in the pack */
@@ -228,8 +228,48 @@ public class Tester {
 			}
 			
 		}
+		
+		/* Make a pack with 9 | 9 */
+		Pack testPack2 = new Pack(9);
+		
+		System.out.println("\nPrinting the 9 | 9 pack.");
+
+		/* Make an iterator for the dominoes in the pack */
+		domIter = testPack2.getDominos().iterator();
+
+		/* Get the next domino, which is the 1st domino, in the pack */
+		nextDom = domIter.next();
+
+		/* What number does the current side of the domino have? */
+		currentSide = nextDom.getSide1();
+
+		/* Print the 1st domino */
+		System.out.print(nextDom + "\t");
+		
+		/* While the pack still has dominos in it */
+		while(domIter.hasNext()){
 			
+			/* The next domino in the pack */
+			nextDom = domIter.next();
+			int nextDomSide  = nextDom.getSide1();
+			
+			/* If the next domino's side is different from the current side 
+			 * print a new line */
+			if(nextDomSide != currentSide){
+				System.out.println();
+				
+				/* Make the current side (to be checked) 
+				 * the same as the next domino's side */
+				currentSide = nextDomSide;
+				
+			}
+			
+			/* Print the domino */
+			System.out.print(nextDom + "\t");
+			
+		}
+		
+		
 	}
-	
 	
 }
