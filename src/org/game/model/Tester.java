@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class Tester {
 	
 	public static void main(String[] args) {
-	
+		PackClass();
 	}
 
 	/**
@@ -169,6 +169,7 @@ public class Tester {
 		/* Creates a new test pack with 28 dominos */
 		System.out.println("\nMaking a pack with 28 dominos.");
 		Pack testPack = new Pack();
+		System.out.println(testPack);
 		
 		System.out.println("\nPrinting the pack.");
 		
@@ -269,6 +270,71 @@ public class Tester {
 			
 		}
 		
+		/* -- Testing the dealHand() method -- */
+				
+		/* Make a player */
+		Player richie = new Player("Richie"); 
+		Player dwayne = new Player("Dwayne");
+		
+		/* Print the current pack before dealing */
+		System.out.println("\n\nReprinting the 6 | 6 pack.");
+		
+		/* Used to keep track of how many dominoes have been printed on the line */
+		printCount = 0;
+		
+		/* Print the shuffled pack */
+		for(Domino dom : testPack.getDominos()){
+			
+			/* Print the domino */
+			System.out.print(dom + "\t");
+			printCount++;
+			
+			/* Make a new line after 7 dominos have been printed */
+			if(printCount > 6){
+				System.out.println();
+				printCount = 0;
+			}
+			
+		}
+		
+		/* Print Richie's hand */
+		System.out.println("\nDealing from the pack into " + richie.getName() + "'s hand.");
+		testPack.dealHand(richie, 7);
+		
+		System.out.println("\nDealt...");
+		for (Domino dom : richie.getHand()){
+			System.out.print(dom + "\t");
+		}
+		
+		/* Print Dwayne's hand */
+		System.out.println("\n\nDealing from the pack into " + dwayne.getName() + "'s hand.");
+		testPack.dealHand(dwayne, 5);
+		
+		System.out.println("\nDealt...");
+		for (Domino dom : dwayne.getHand()){
+			System.out.print(dom + "\t");
+		}
+		
+		/* Print Modified Pack */
+		System.out.println("\n\nReprinting the modified pack.");
+		
+		/* Used to keep track of how many dominoes have been printed on the line */
+		printCount = 0;
+		
+		/* Print the new shuffled pack */
+		for(Domino dom : testPack.getDominos()){
+			
+			/* Print the domino */
+			System.out.print(dom + "\t");
+			printCount++;
+			
+			/* Make a new line after 7 dominos have been printed */
+			if(printCount > 6){
+				System.out.println();
+				printCount = 0;
+			}
+			
+		}
 		
 	}
 	

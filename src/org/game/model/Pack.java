@@ -115,7 +115,7 @@ public class Pack {
 	@Override
 	public String toString() {
 		return "Original Size: " + orgPackSize() + 
-			   "\n Current Size: " + packSize();
+			   "\nCurrent Size: " + packSize();
 	}
 	
 	
