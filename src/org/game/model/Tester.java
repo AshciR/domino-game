@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class Tester {
 	
 	public static void main(String[] args) {
-		PackClass();
+		
 	}
 
 	/**
@@ -335,6 +335,8 @@ public class Tester {
 			}
 			
 		}
+		
+		System.out.println("\n\n"+ testPack);
 		
 	}
 	
