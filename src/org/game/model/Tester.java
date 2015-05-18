@@ -175,18 +175,13 @@ public class Tester {
 		/* Print all the dominos in the pack */
 		for (Domino dom : testPack.getDominos()){
 			
-			/* What number does the current side of the domino have? */
-			int currentSide = dom.getSide1();
-			
+			System.out.print(dom + "\t");
 			/* If the side is the same, then print it on the same line */
-			if(dom.getSide1() == currentSide){
-				System.out.print(dom + "\t");
-			}
-			/* New number, so start the next line */
-			else{
+			if(dom.getSide2()%6 == 0)
+			{
 				System.out.println();
 			}
-			
+						
 		}
 		
 		/* Shuffling the pack */
@@ -195,6 +190,17 @@ public class Tester {
 		
 		/* Print the new shuffled pack */
 		for(Domino dom : testPack.getDominos()){
+			System.out.println(dom);
+		}
+		
+		System.out.println("\nDealing...Dominos Left");
+		Player richie = new Player("Richie"); 
+		testPack.dealHand(richie);
+		for(Domino dom : testPack.getDominos()){
+			System.out.println(dom);
+		}
+		System.out.println("\nDealt...");
+		for (Domino dom : richie.getHand()){
 			System.out.println(dom);
 		}
 			

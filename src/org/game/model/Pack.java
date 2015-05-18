@@ -9,11 +9,14 @@ public class Pack
 	List<Domino> pack; 
 	
 	
+	/*Default constructor for pack of 28*/
 	public Pack()
 	{
 		int i, k;
-		pack = new ArrayList<Domino>();
+		pack = new ArrayList<Domino>();//Creates pack as an ArrayList of Dominos
 		System.out.println("creating cards");
+		
+		/*Following nested loops create Domino cards*/
 		for(i = 0; i<=6;i++)
 		{
 			for(k = i; k<=6;k++)
@@ -26,16 +29,36 @@ public class Pack
 	}
 
 
+	/*Returns pack */
 	public List<Domino> getDominos() 
 	{
 		return pack;
 	}
 	
+	/*Shuffles pack of Dominos*/
 	public void shuffle()
 	{
 		Collections.shuffle(pack);
 	}
 	
+	/*Returns size of pack*/
+	public int packSize()
+	{
+		return pack.size();
+	}
+	
+	public void dealPackSeven()
+	{
+		
+	}
+	
+	public void dealHand(Player player1)
+	{
+		for(int i = 0; i < 7; i++)
+			{
+				player1.addDomino(pack.remove(0));
+			}
+	}
 	
 	
 }
