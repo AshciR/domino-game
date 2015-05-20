@@ -193,20 +193,19 @@ public class Tester {
 		/* While the pack still has dominos in it */
 		while(domIter.hasNext()){
 			
-<<<<<<< HEAD
 			System.out.print(dom + "\t");
 			/* If the side is the same, then print it on the same line */
 			if(dom.getSide2()%6 == 0)
 			{
-=======
-			/* The next domino in the pack */
+			
+				/* The next domino in the pack */
 			nextDom = domIter.next();
 			int nextDomSide  = nextDom.getSide1();
 			
 			/* If the next domino's side is different from the current side 
 			 * print a new line */
 			if(nextDomSide != currentSide){
->>>>>>> dev
+
 				System.out.println();
 				
 				/* Make the current side (to be checked) 
@@ -214,14 +213,13 @@ public class Tester {
 				currentSide = nextDomSide;
 				
 			}
-<<<<<<< HEAD
+
 						
-=======
+
 			
 			/* Print the domino */
 			System.out.print(nextDom + "\t");
-			
->>>>>>> dev
+
 		}
 				
 		/* Shuffling the pack */
@@ -331,7 +329,7 @@ public class Tester {
 			System.out.print(dom + "\t");
 		}
 		
-<<<<<<< HEAD
+
 		System.out.println("\nDealing...Dominos Left");
 		Player richie = new Player("Richie"); 
 		testPack.dealHand(richie);
@@ -342,7 +340,7 @@ public class Tester {
 		for (Domino dom : richie.getHand()){
 			System.out.println(dom);
 		}
-=======
+
 		/* Print Modified Pack */
 		System.out.println("\n\nReprinting the modified pack.");
 		
@@ -355,7 +353,7 @@ public class Tester {
 			/* Print the domino */
 			System.out.print(dom + "\t");
 			printCount++;
->>>>>>> dev
+
 			
 			/* Make a new line after 7 dominos have been printed */
 			if(printCount > 6){
