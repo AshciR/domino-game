@@ -116,7 +116,7 @@ public class Board {
 	}
 	
 	/**
-	 * Add a domino to the top of the board.
+	 * Add a domino to the bot of the board.
 	 * <p>
 	 * The user of this method must specify which side of the domino should
 	 * be connected to the board.
