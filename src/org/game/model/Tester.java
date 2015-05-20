@@ -1,5 +1,7 @@
 package org.game.model;
 
+import java.util.Iterator;
+
 /**
  * This class serves as the testing framework for the classes
  * that are developed in this project.
@@ -11,7 +13,6 @@ package org.game.model;
 public class Tester {
 	
 	public static void main(String[] args) {
-		PackClass();
 		
 	}
 
@@ -36,6 +37,11 @@ public class Tester {
 		System.out.println("This domino is " + dom1);
 		System.out.println("This domino is " + dom2);
 		System.out.println("This domino is " + dom3);
+		
+		/* Test the printVertical() method */
+		dom1.printVertical();
+		dom2.printVertical();
+		dom3.printVertical();
 		
 		/* Get the total values */
 		System.out.println();
@@ -159,40 +165,173 @@ public class Tester {
 	/**
 	 * Tester for the Pack Class
 	 * @see Pack
-	 * */	
+	 */	
 	@SuppressWarnings("unused")
 	private static void PackClass(){
 		
 		System.out.println("--- Testing the domino pack class ---");
 		
 		/* Creates a new test pack with 28 dominos */
-		System.out.println("\nMaking a pack with 28 dominos");
+		System.out.println("\nMaking a pack with 28 dominos.");
 		Pack testPack = new Pack();
+		System.out.println(testPack);
 		
-		System.out.println("Printing the pack");
-		System.out.println();
+		System.out.println("\nPrinting the pack.");
 		
-		/* Print all the dominos in the pack */
-		for (Domino dom : testPack.getDominos()){
+		/* Make an iterator for the dominoes in the pack */
+		Iterator<Domino> domIter = testPack.getDominos().iterator();
+		
+		/* Get the next domino, which is the 1st domino, in the pack */
+		Domino nextDom = domIter.next();
+		
+		/* What number does the current side of the domino have? */
+		int currentSide = nextDom.getSide1();
+		
+		/* Print the 1st domino */
+		System.out.print(nextDom + "\t");
+		
+		/* While the pack still has dominos in it */
+		while(domIter.hasNext()){
 			
+<<<<<<< HEAD
 			System.out.print(dom + "\t");
 			/* If the side is the same, then print it on the same line */
 			if(dom.getSide2()%6 == 0)
 			{
+=======
+			/* The next domino in the pack */
+			nextDom = domIter.next();
+			int nextDomSide  = nextDom.getSide1();
+			
+			/* If the next domino's side is different from the current side 
+			 * print a new line */
+			if(nextDomSide != currentSide){
+>>>>>>> dev
 				System.out.println();
+				
+				/* Make the current side (to be checked) 
+				 * the same as the next domino's side */
+				currentSide = nextDomSide;
+				
 			}
+<<<<<<< HEAD
 						
+=======
+			
+			/* Print the domino */
+			System.out.print(nextDom + "\t");
+			
+>>>>>>> dev
 		}
-		
+				
 		/* Shuffling the pack */
-		System.out.println("\nShuffling...");
+		System.out.println("\n\nShuffling...");
 		testPack.shuffle();
+		
+		/* Used to keep track of how many dominoes have been printed on the line */
+		int printCount = 0;
 		
 		/* Print the new shuffled pack */
 		for(Domino dom : testPack.getDominos()){
-			System.out.println(dom);
+			
+			/* Print the domino */
+			System.out.print(dom + "\t");
+			printCount++;
+			
+			/* Make a new line after 7 dominos have been printed */
+			if(printCount > 6){
+				System.out.println();
+				printCount = 0;
+			}
+			
 		}
 		
+		/* Make a pack with 9 | 9 */
+		Pack testPack2 = new Pack(9);
+		
+		System.out.println("\nPrinting the 9 | 9 pack.");
+
+		/* Make an iterator for the dominoes in the pack */
+		domIter = testPack2.getDominos().iterator();
+
+		/* Get the next domino, which is the 1st domino, in the pack */
+		nextDom = domIter.next();
+
+		/* What number does the current side of the domino have? */
+		currentSide = nextDom.getSide1();
+
+		/* Print the 1st domino */
+		System.out.print(nextDom + "\t");
+		
+		/* While the pack still has dominos in it */
+		while(domIter.hasNext()){
+			
+			/* The next domino in the pack */
+			nextDom = domIter.next();
+			int nextDomSide  = nextDom.getSide1();
+			
+			/* If the next domino's side is different from the current side 
+			 * print a new line */
+			if(nextDomSide != currentSide){
+				System.out.println();
+				
+				/* Make the current side (to be checked) 
+				 * the same as the next domino's side */
+				currentSide = nextDomSide;
+				
+			}
+			
+			/* Print the domino */
+			System.out.print(nextDom + "\t");
+			
+		}
+		
+		/* -- Testing the dealHand() method -- */
+				
+		/* Make a player */
+		Player richie = new Player("Richie"); 
+		Player dwayne = new Player("Dwayne");
+		
+		/* Print the current pack before dealing */
+		System.out.println("\n\nReprinting the 6 | 6 pack.");
+		
+		/* Used to keep track of how many dominoes have been printed on the line */
+		printCount = 0;
+		
+		/* Print the shuffled pack */
+		for(Domino dom : testPack.getDominos()){
+			
+			/* Print the domino */
+			System.out.print(dom + "\t");
+			printCount++;
+			
+			/* Make a new line after 7 dominos have been printed */
+			if(printCount > 6){
+				System.out.println();
+				printCount = 0;
+			}
+			
+		}
+		
+		/* Print Richie's hand */
+		System.out.println("\nDealing from the pack into " + richie.getName() + "'s hand.");
+		testPack.dealHand(richie, 7);
+		
+		System.out.println("\nDealt...");
+		for (Domino dom : richie.getHand()){
+			System.out.print(dom + "\t");
+		}
+		
+		/* Print Dwayne's hand */
+		System.out.println("\n\nDealing from the pack into " + dwayne.getName() + "'s hand.");
+		testPack.dealHand(dwayne, 5);
+		
+		System.out.println("\nDealt...");
+		for (Domino dom : dwayne.getHand()){
+			System.out.print(dom + "\t");
+		}
+		
+<<<<<<< HEAD
 		System.out.println("\nDealing...Dominos Left");
 		Player richie = new Player("Richie"); 
 		testPack.dealHand(richie);
@@ -203,10 +342,84 @@ public class Tester {
 		for (Domino dom : richie.getHand()){
 			System.out.println(dom);
 		}
-			
+=======
+		/* Print Modified Pack */
+		System.out.println("\n\nReprinting the modified pack.");
 		
+		/* Used to keep track of how many dominoes have been printed on the line */
+		printCount = 0;
+		
+		/* Print the new shuffled pack */
+		for(Domino dom : testPack.getDominos()){
+			
+			/* Print the domino */
+			System.out.print(dom + "\t");
+			printCount++;
+>>>>>>> dev
+			
+			/* Make a new line after 7 dominos have been printed */
+			if(printCount > 6){
+				System.out.println();
+				printCount = 0;
+			}
+			
+		}
+		
+		System.out.println("\n\n"+ testPack);
 		
 	}
 	
+	/**
+	 * Tester for the Board Class
+	 */
+	@SuppressWarnings("unused")
+	private static void BoardClass(){
+		
+		System.out.println("-- Testing the Board Class --\n");
+		
+		/* Make a board object */
+		Board testBoard = new Board();
+		
+		System.out.println("Is the board empty? " + testBoard.isEmpty());
+		
+		/* Make dominos to added to the board */
+		Domino dom1 = new Domino(5,5); // 5 | 5
+		Domino dom2 = new Domino(6,4); // 6 | 4
+		Domino dom3 = new Domino(6,5); // 6 | 5
+		Domino dom4 = new Domino(6,6); // double 6
+		Domino dom5 = new Domino(); // double blank
+		
+		/* Add the dominos to the board */
+		System.out.println("\nAdding dominos to the board...");
+		testBoard.addDominoTop(dom4, true); // [6 | 6]
+		testBoard.addDominoTop(dom2, true); // [4 | 6][6 | 6]
+		testBoard.addDominoBot(dom3, true); // [4 | 6][6 | 6][6 | 5]
+		testBoard.addDominoBot(dom1, true); // [4 | 6][6 | 6][6 | 5][5 | 5]
+		
+		/* Print info about the board */
+		System.out.println("\n" + testBoard);
+		
+		System.out.println("\nPrinting the board...");
+		/* Print the board */
+		System.out.println();
+		testBoard.printBoardHorz();
+		System.out.println();
+		testBoard.printBoardVert();
+		
+		/* Check the available sides of the board */
+		System.out.println("The playable top side is " + testBoard.getTopSide()); // Should be 6
+		System.out.println("The playable bot side is " + testBoard.getBotSide()); // Should be 5
+		
+		/* Test domOnBoardMethod() is on the board */
+		System.out.println();
+		System.out.println(dom4 + " is on the board? " + testBoard.dominoOnBoard(dom4)); // should be true
+		System.out.println(dom5 + " is on the board? " + testBoard.dominoOnBoard(dom5)); // should be true
+		
+		/* Test numOfType() method */
+		System.out.println();
+		System.out.println("Number of 6s on the board: " + testBoard.numOfType(6));
+		System.out.println("Number of 5s on the board: " + testBoard.numOfType(5));
+		System.out.println("Number of 0s on the board: " + testBoard.numOfType(0));
+	}
 	
 }

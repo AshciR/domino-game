@@ -9,15 +9,8 @@ public class Domino implements Comparable<Domino> {
 	/* Fields used to represent the sides of a domino.
 	 * A domino has two sides associated with it. */
 	private int side1, side2;
+	private boolean flipped;
 	
-	public void setSide1(int side1) {
-		this.side1 = side1;
-	}
-
-	public void setSide2(int side2) {
-		this.side2 = side2;
-	}
-
 	/**
 	 * Constructor that makes a new "double blank" domino. 
 	 * I.e. a domino whose both sides are 0.  
@@ -26,6 +19,7 @@ public class Domino implements Comparable<Domino> {
 	{
 		this.side1 = 0;
 		this.side2 = 0;
+		this.flipped = false; 
 	}
 	
 	/**
@@ -36,6 +30,7 @@ public class Domino implements Comparable<Domino> {
 	public Domino(int side1, int side2){
 		this.side1 = side1;
 		this.side2 = side2;
+		this.flipped = false; 
 	}
 	
 	/* Getters for the Domino */
@@ -54,6 +49,23 @@ public class Domino implements Comparable<Domino> {
 	 */
 	public int getSide2() {
 		return side2;
+	}
+	
+	/**
+	 * Determines if the domino is/was flipped.
+	 * @return true if the domino is flipped.
+	 */
+	public boolean isFlip(){
+		return flipped;
+	}
+	
+	/**
+	 * Flips the domino's state.
+	 */
+	public void flipDom(){
+		
+		/* Change the flip state of the domino */ 
+		flipped = !flipped;
 	}
 	
 	/** 
@@ -87,6 +99,47 @@ public class Domino implements Comparable<Domino> {
 		return side1 == side2;
 	}
 	
+	/** 
+	 * Prints a vertical text representation of the domino.
+	 * @param true, if the domino should be printed reversed.
+	 */
+	public void printVertical(){
+		
+		/* If not flipped */
+		if(!flipped){
+			System.out.println("---");
+			System.out.println(" " + side1);
+			System.out.println(" -");
+			System.out.println(" " + side2);
+			System.out.println("---");
+		}
+		/* Print in the opposite way */
+		else{
+			System.out.println("---");
+			System.out.println(" " + side2);
+			System.out.println(" -");
+			System.out.println(" " + side1);
+			System.out.println("---");
+		}
+		
+		
+	}
+	
+	/** 
+	 * Prints a horizonal text representation of the domino.
+	 * @param true, if the domino should be printed reversed.
+	 */
+	public void printHorizontal(){
+		
+		if(!flipped){
+			System.out.print("[" + side1 + " | " + side2 + "]");
+		}
+		else{
+			System.out.print("[" + side2 + " | " + side1 + "]");
+		}
+		
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -102,7 +155,9 @@ public class Domino implements Comparable<Domino> {
 			return false;
 		return true;
 	}
-
+	
+	
+	
 	@Override
 	public int compareTo(Domino compDom) {
 		return this.getTotalValue() - compDom.getTotalValue();
@@ -110,7 +165,7 @@ public class Domino implements Comparable<Domino> {
 	
 	@Override
 	public String toString() {
-		return side1 + " | " + side2;
+		return "[" + side1 + " | " + side2 + "]";
 	}
 
 
