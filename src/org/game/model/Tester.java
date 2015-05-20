@@ -345,4 +345,57 @@ public class Tester {
 		
 	}
 	
+	/**
+	 * Tester for the Board Class
+	 */
+	@SuppressWarnings("unused")
+	private static void BoardClass(){
+		
+		System.out.println("-- Testing the Board Class --\n");
+		
+		/* Make a board object */
+		Board testBoard = new Board();
+		
+		System.out.println("Is the board empty? " + testBoard.isEmpty());
+		
+		/* Make dominos to added to the board */
+		Domino dom1 = new Domino(5,5); // 5 | 5
+		Domino dom2 = new Domino(6,4); // 6 | 4
+		Domino dom3 = new Domino(6,5); // 6 | 5
+		Domino dom4 = new Domino(6,6); // double 6
+		Domino dom5 = new Domino(); // double blank
+		
+		/* Add the dominos to the board */
+		System.out.println("\nAdding dominos to the board...");
+		testBoard.addDominoTop(dom4, true); // [6 | 6]
+		testBoard.addDominoTop(dom2, true); // [4 | 6][6 | 6]
+		testBoard.addDominoBot(dom3, true); // [4 | 6][6 | 6][6 | 5]
+		testBoard.addDominoBot(dom1, true); // [4 | 6][6 | 6][6 | 5][5 | 5]
+		
+		/* Print info about the board */
+		System.out.println("\n" + testBoard);
+		
+		System.out.println("\nPrinting the board...");
+		/* Print the board */
+		System.out.println();
+		testBoard.printBoardHorz();
+		System.out.println();
+		testBoard.printBoardVert();
+		
+		/* Check the available sides of the board */
+		System.out.println("The playable top side is " + testBoard.getTopSide()); // Should be 6
+		System.out.println("The playable bot side is " + testBoard.getBotSide()); // Should be 5
+		
+		/* Test domOnBoardMethod() is on the board */
+		System.out.println();
+		System.out.println(dom4 + " is on the board? " + testBoard.dominoOnBoard(dom4)); // should be true
+		System.out.println(dom5 + " is on the board? " + testBoard.dominoOnBoard(dom5)); // should be true
+		
+		/* Test numOfType() method */
+		System.out.println();
+		System.out.println("Number of 6s on the board: " + testBoard.numOfType(6));
+		System.out.println("Number of 5s on the board: " + testBoard.numOfType(5));
+		System.out.println("Number of 0s on the board: " + testBoard.numOfType(0));
+	}
+	
 }

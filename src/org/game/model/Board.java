@@ -80,6 +80,14 @@ public class Board {
 	}
 	
 	/**
+	 * Returns the number of dominos currently on the board.
+	 * @return the number of dominos currently on the board.
+	 */
+	public int numDomBoard(){
+		return dominos.size();
+	}
+	
+	/**
 	 * Add a domino to the top of the board.
 	 * <p>
 	 * The user of this method must specify which side of the domino should
@@ -96,6 +104,9 @@ public class Board {
 		/* If side1 is true, that means side1 is the one that matched,
 		 * therefore, side2 becomes the next available side on the board. */
 		if(side1){
+			
+			/* Have to flip the domino b/c you're adding side1 to the top */
+			addedDom.flipDom();
 			topSide = addedDom.getSide2();
 		}
 		else{
@@ -124,6 +135,9 @@ public class Board {
 			botSide = addedDom.getSide2();
 		}
 		else{
+			
+			/* Have to flip the domino b/c you're adding side2 to the bot */
+			addedDom.flipDom();
 			botSide = addedDom.getSide1();
 		}
 		
@@ -175,6 +189,7 @@ public class Board {
 			dom.printVertical();
 		}
 		
+		System.out.println();
 	}
 
 	/**
@@ -183,9 +198,20 @@ public class Board {
 	public void printBoardHorz(){
 		
 		/* Print all the dominos on the board */
-		for(Domino dom : dominos){
-			System.out.print(dom);
+		for(Domino dom : dominos){			
+			dom.printHorizontal();
 		}
+		
+		System.out.println();
 	}
+
+	@Override
+	public String toString() {
+		return "Num of dominos on the board " + numDomBoard() + 
+				"\nPlayable Top Side: " + topSide + 
+				"\nPlayable Bot Side: " + botSide;
+	}
+	
+	
 	
 }
