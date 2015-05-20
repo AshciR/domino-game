@@ -10,14 +10,6 @@ public class Domino implements Comparable<Domino> {
 	 * A domino has two sides associated with it. */
 	private int side1, side2;
 	
-	public void setSide1(int side1) {
-		this.side1 = side1;
-	}
-
-	public void setSide2(int side2) {
-		this.side2 = side2;
-	}
-
 	/**
 	 * Constructor that makes a new "double blank" domino. 
 	 * I.e. a domino whose both sides are 0.  
@@ -87,6 +79,18 @@ public class Domino implements Comparable<Domino> {
 		return side1 == side2;
 	}
 	
+	/** 
+	 * Prints a vertical text representation of the domino.
+	 */
+	public void printVertical(){
+		
+		System.out.println("_");
+		System.out.println(side1);
+		System.out.println("_");
+		System.out.println(side2);
+		System.out.println("_");
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -110,7 +114,7 @@ public class Domino implements Comparable<Domino> {
 	
 	@Override
 	public String toString() {
-		return side1 + " | " + side2;
+		return "[" + side1 + " | " + side2 + "]";
 	}
 
 
