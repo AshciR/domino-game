@@ -165,4 +165,27 @@ public class Board {
 		
 	}
 	
+	/**
+	 * Prints the board vertically in a text format.
+	 */
+	public void printBoardVert(){
+		
+		/* Print all the dominos on the board */
+		for(Domino dom : dominos){
+			dom.printVertical();
+		}
+		
+	}
+
+	/**
+	 * Prints the board horizontally in a text format.
+	 */
+	public void printBoardHorz(){
+		
+		/* Print all the dominos on the board */
+		for(Domino dom : dominos){
+			System.out.print(dom);
+		}
+	}
+	
 }

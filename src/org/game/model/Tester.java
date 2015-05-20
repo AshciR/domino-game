@@ -38,6 +38,11 @@ public class Tester {
 		System.out.println("This domino is " + dom2);
 		System.out.println("This domino is " + dom3);
 		
+		/* Test the printVertical() method */
+		dom1.printVertical();
+		dom2.printVertical();
+		dom3.printVertical();
+		
 		/* Get the total values */
 		System.out.println();
 		System.out.println("The total value for " + dom1 + " is " + dom1.getTotalValue());

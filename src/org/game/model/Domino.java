@@ -84,11 +84,11 @@ public class Domino implements Comparable<Domino> {
 	 */
 	public void printVertical(){
 		
-		System.out.println("_");
-		System.out.println(side1);
-		System.out.println("_");
-		System.out.println(side2);
-		System.out.println("_");
+		System.out.println("---");
+		System.out.println(" " + side1);
+		System.out.println(" -");
+		System.out.println(" " + side2);
+		System.out.println("---");
 	}
 	
 	@Override
