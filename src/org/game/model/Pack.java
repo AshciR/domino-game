@@ -13,17 +13,6 @@ public class Pack {
 	private List<Domino> pack; 
 	private int originalSize; // the original size of the pack.
 	
-<<<<<<< HEAD
-	/*Default constructor for pack of 28*/
-	public Pack()
-	{
-		int i, k;
-		pack = new ArrayList<Domino>();//Creates pack as an ArrayList of Dominos
-		System.out.println("creating cards");
-		
-		/*Following nested loops create Domino cards*/
-		for(i = 0; i<=6;i++)
-=======
 	/**
 	 * Default constructor that creates a pack with 28 dominoes.
 	 * <p>
@@ -63,7 +52,6 @@ public class Pack {
 		
 		/* 2-D Loop that creates the 28 dominoes */
 		for(int i = 0; i <= highestCard; i++)
->>>>>>> dev
 		{
 			for(int k = i; k <= highestCard; k++)
 			{
@@ -74,40 +62,6 @@ public class Pack {
 		}
 		
 	}
-<<<<<<< HEAD
-
-
-	/*Returns pack */
-	public List<Domino> getDominos() 
-	{
-		return pack;
-	}
-	
-	/*Shuffles pack of Dominos*/
-	public void shuffle()
-	{
-		Collections.shuffle(pack);
-	}
-	
-	/*Returns size of pack*/
-	public int packSize()
-	{
-		return pack.size();
-	}
-	
-	public void dealPackSeven()
-	{
-		
-	}
-	
-	public void dealHand(Player player1)
-	{
-		for(int i = 0; i < 7; i++)
-			{
-				player1.addDomino(pack.remove(0));
-			}
-	}
-=======
 	
 	/**
 	 * Used to get all the dominoes that are currently in the pack.
@@ -164,7 +118,6 @@ public class Pack {
 			   "\nCurrent Size: " + packSize();
 	}
 	
->>>>>>> dev
 	
 	
 }
