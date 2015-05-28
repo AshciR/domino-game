@@ -39,7 +39,7 @@ public class Pack {
 	}
 	
 	/**
-	 * Default constructor that creates a pack with 28 dominoes.
+	 * Creates a pack with a specified number of dominos.
 	 * <p>
 	 * Note, a standard pack starts with 0 | 0, and goes to 6 | 6.
 	 * @param highestCard an integer which represents the highest card in the pack.
