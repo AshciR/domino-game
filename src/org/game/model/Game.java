@@ -58,8 +58,8 @@ public class Game
 		
 		/* Deal the dominos to each player in the game */
 		for(Player player: playerList){
-			newPack.dealHand(player, 7);
-			System.out.printf("%s 's hand was dealt.\n", player.getName());
+			newPack.dealHand(player, 7); // deals 7 dominos into the player's hand.
+			iFace.handDealt(player); // tells the player their hand was dealt.
 		}
 			
 	}

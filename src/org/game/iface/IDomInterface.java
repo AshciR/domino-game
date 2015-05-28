@@ -1,5 +1,7 @@
 package org.game.iface;
 
+import org.game.model.Player;
+
 /**
  * Interface for the domino used to get data/show data to the user.
  * <p>
@@ -26,4 +28,8 @@ public interface IDomInterface {
 	 */
 	public String playerName();
 	
+	/**
+	 * Tells the players that his hand was dealt.
+	 */
+	public void handDealt(Player player);
 }

@@ -2,6 +2,8 @@ package org.game.iface;
 
 import java.util.Scanner;
 
+import org.game.model.Player;
+
 /**
  * A text interface that is used to play a game of dominos.
  * Note that it implements the IDomInterface. 
@@ -35,6 +37,11 @@ public class TextInterface implements IDomInterface {
 	public String playerName() {
 		System.out.println("Please enter Player's Name.");
 		return input.next();
+	}
+
+	@Override
+	public void handDealt(Player player) {
+		System.out.printf("%s 's hand was dealt.\n", player.getName());	
 	}
 	
 }
