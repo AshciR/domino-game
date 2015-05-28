@@ -18,8 +18,12 @@ public class Game
 	private List<Player> playerList; // List of the players in the game
 	
 	/**
-	 * Default constructor makes a game with 0 players, and no
-	 * prescribed pack.
+	 * Makes a game with 0 players, and no
+	 * prescribed pack. 
+	 * <p>
+	 * The client must provide the game with an IDomInterface object, 
+	 * in order for the game be made.
+	 * @param iFace the interface for the game. i.e. Text Interface, GUI, etc.
 	 */
 	public Game(IDomInterface iFace){
 		this.numOfPlayers = 0;
